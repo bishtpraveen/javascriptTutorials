@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+<link rel="stylesheet" href="css/bootstrap.css">
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="js/bootstrap.js"></script>
+</head>
+<body>
+  <button id="openModal" data-target="#myId" data-toggle="modal">Click to open Modal</button> 
+  <div class="container">
+      <div class="row">
+          <div class="col-md-10 mx-auto bg-light p-4">
+
+            <table class="table tabe-hover  table-bordered table-dark">
+                <thead>
+                    <tr>
+                        <th>SrNo</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Action</th>
+                         </tr>
+
+                </thead>
+                 <tbody id="myData">
+
+                 </tbody>
+                 <tfoot>
+
+                 </tfoot>
+            </table>
+
+          </div>
+
+      </div>
+
+  </div>  
+  <div class="modal" id="myId">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h1>Edit editDetails</h1>
+                  <button class="close" data-dismiss="modal">
+                      &times;
+                  </button>
+
+              </div>
+              <div class="modal-body">
+                  
+
+              </div>
+
+
+
+          </div>
+
+      </div>
+
+  </div>
+  
+
+
+<script>
+
+
+
+
+
+
+    let Record=[
+        {'name':'praveen','email':'@praveen.co'},
+        {'name':'karthik','email':'@karthik.co'},
+        {'name':'shivani','email':'@bhandari.co'},
+        {'naame':'bhandari','email':'@shivaniBhandari'},
+] ;
+function showData(){   
+let tag_name=''
+for(let i=0; i<=Record.length;i++){
+    tag_name+="<tr>"
+tag_name +="<td>"+           i         +"</td>" ;
+
+
+
+
+// tag_name +="<td>"+ Record[i]['name']  +"</td>";
+// tag_name +="<td>"+ Record[i]['email'] +"</td>";
+
+tag_name+="<td>"+Record[i]['name']+"</td>"
+tag_name+="<td>"+Record[i]['email']+"</td>"
+tag_name +="<td><button onClick='editDetails('+i+')' class='btn btn-success'>Edit</button> <button  class='btn btn-success'>Delete</button>               </td>"
+
+   
+       
+
+
+tag_name+="</tr>"
+    }
+    document.getElementById('myData').innerHTML=tag_name 
+}
+showData()
+function editDetails(index){
+
+    let data = Record[index]
+    document.getElementById('index').value=index
+    document.getElementById('editName').value=data['name']
+    document.getElementById('editEmail').value=data['email']
+    document.getElementByIda('openModal').click()
+}
+function updateDetais(){
+    let uIndex =document.getElementByIda('index').value
+    let uName =document.getElementById('editName').value
+    let uEmail= document.getElementById('editEmail').value
+    let obj ={'name':'uname','email':uEmail}
+    Record[uIndex]=obj
+    console.log(Record)
+    showData()
+    document.getElementById('openModal').click
+}
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

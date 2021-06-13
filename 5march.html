@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="js/bootstrap.js"></script>
+</head>
+<body>
+    
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-5">
+
+            <button class="btn btn-success" data-toggle="modal" data-target="#myMod" >Click</button>
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<!--Modal-->
+<div class="modal" id="myMod">
+
+
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h1>Sign-In</h1>
+                <button  class="close" data-dismiss="modal">
+                    &times;
+                </button>
+
+
+            </div>
+
+            
+
+            <div class="modal-body">
+
+                <div class="alert alert-danger alert-dismissiable fade show">
+                    Credentials not correct**********
+
+                    <button class="close " data-dismiss="alert">
+                        &times;
+                    </button>
+
+
+                </div> 
+                
+
+                
+
+                <form action="">
+                 <label for="">Email</label>
+                <input type="email" placeholder="Enter Your Email" class="form-control"  >
+                <label for="">Password</label>
+                <input type="password" placeholder="Enter Your Password" class="form-control" >
+                
+                 <div class="text-right my-2">
+                    <button class="btn btn-success">Sign In</button>
+
+
+                 </div>
+</form>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+ <div class="container">
+     <div class="row">
+         <div class="col-md-6 p-3 bg-primary mx-auto ">
+            <table class="table table-border">
+                <thead>
+                    <tr>
+                        <th>S.N.</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Age</th>
+                    </tr>
+                
+                </thead>
+                <tbody id="myData">
+                
+                </tbody>
+                <tfoot>
+                
+                </tfoot>
+                
+                 </table>
+                
+                
+                
+                
+                
+                
+
+         </div>
+          
+     </div>
+
+ </div>
+ 
+
+
+ <script>
+
+
+
+let Record = [
+            { 'name': 'Praveen', 'email': 'j1@gml' }
+            ,
+            { 'name': 'Karthik', 'email': 'j1@gml' }
+            ,
+
+            { 'name': 'Rahul', 'email': 'j1@gml' }
+            ,
+            { 'name': 'Rajesh', 'email': 'j1@gml' }
+            ,
+            { 'name': 'Aryaan', 'email': 'j1@gml'}
+                   ]
+
+
+
+        let tag_name=''
+
+        for(let i=0;i<Record.length;i++){
+            tag_name+="<tr>"
+
+                tag_name+="<td>"+i+"</td>"
+
+                tag_name+="<td>"+Record[i]['name']+"</td>"
+                
+                tag_name+="<td>"+Record[i]['email']+"</td>"
+                tag_name+="<td> <button onClick='editDetails("+i+")' class='btn btn-warning '> Edit </button> <button class='btn btn-warning '>delete </button>    </td>"
+                    tag_name+="</tr>"
+
+        }
+       document.getElementById('myData').innerHTML=tag_name
+
+    function editDetails(index){
+
+
+        let data = Record[index]
+        console.log(data)
+    }
+
+
+
+
+ </script>
+
+
+</body>
+</html>
